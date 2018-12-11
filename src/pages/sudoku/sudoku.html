@@ -1,0 +1,165 @@
+<!--
+  Generated template for the SudokuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- Generated template for the SudokuComponent component -->
+
+<div>
+  <table>
+    <tr>
+      <td *ngFor="let row1 of rowOne let i=index;"><input type="text"   class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,row1.value,'One')" (ngModelChange)="isValidSudoku(i,row1,'One')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowTwo let i=index;" ><input type="text"   class="input-size"  [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Two')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowThree let i =index;"><input type="text"  class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Three')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowFour let i=index;"><input type="text"   class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Four')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowFive let i=index;"><input type="text"  class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Five')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowSix let i=index;" ><input type="text"  class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Six')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowSeven let i=index;"><input type="text"  class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Seven')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text" class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowEight let i= index;"><input type="text"  class="input-size"  [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Eight')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+    <tr>
+      <td *ngFor="let row1 of rowNine let i=index;"><input type="text"   class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,newValue,'Nine')" (ngModelChange)="isValidSudoku(i,newValue,'Two')" maxlength="1"></td>
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+      <!--<td><input type="text"  class="input-size"></td>-->
+    </tr>
+
+  </table><table>
+  <div class="row">
+    <div><button type="button"   class="input-size btn-space" (click)="keyBoardEvent('1')">1</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('2')">2</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('3')">3</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('4')">4</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('5')">5</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('6')">6</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('7')">7</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('8')">8</button></div>
+    <div><button type="button"   class="input-size" (click)="keyBoardEvent('9')">9</button></div>
+
+    <!--<td><input type="text" class="input-size"></td>-->
+    <!--<td><input type="text"  class="input-size"></td>-->
+    <!--<td><input type="text"  class="input-size"></td>-->
+    <!--<td><input type="text"  class="input-size"></td>-->
+    <!--<td><input type="text"  class="input-size"></td>-->
+    <!--<td><input type="text" class="input-size"></td>-->
+    <!--<td><input type="text"  class="input-size"></td>-->
+    <!--<td><input type="text"  class="input-size"></td>-->
+  </div></table>
+
+  <!--<table >-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let row1 of [1,2,3,4,5,6,7,8,9]">-->
+  <!--<td>{{row1}}</td>-->
+  <!--</tr>-->
+  <!--</table>-->
+</div>
