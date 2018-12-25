@@ -31,3 +31,16 @@ tr:nth-child(3n) td {
 .inValidCell{
   border-color: red;
 }
+.btn-shape{
+  margin: 3px;
+  border-radius: 15px;
+}
+.board-centre{
+  justify-content: center;
+}
+.invalid{
+  background-color: red;
+}
+.valid{
+  background-color: white;
+}

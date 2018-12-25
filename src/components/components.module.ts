@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SudokuTestComponent } from './sudoku-test/sudoku-test';
+// import { SudokuTestComponent } from './sudoku-test/sudoku-test';
 @NgModule({
-	declarations: [SudokuTestComponent],
+	declarations: [],
 	imports: [],
-	exports: [SudokuTestComponent]
+	exports: []
 })
 export class ComponentsModule {}
