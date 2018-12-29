@@ -7,18 +7,18 @@
 <!-- Generated template for the SudokuComponent component -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title class="justify-content-center">Sudoku Game</ion-title>
+  <ion-navbar color="primary">
+    <ion-title ><span style="display: flex; justify-content: center;">Sudoku Game</span></ion-title>
   </ion-navbar>
 
 </ion-header>
-<ion-content>
+<ion-content >
 
 
-<div class="board-centre display-flex justify-content-center">
-  <table style="display: flex; justify-content: center;">
+<div class="board-centre display-flex justify-content-center" style="margin-top:10%;">
+  <table class="col-12" style="display: flex; justify-content: center;">
     <tr>
-      <td *ngFor="let row1 of rowOne let i=index;"><input type="text" [class.invalid]="i==selectedIdx && selectedRow == 'One' && !!checker" class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,row1.value,'One')" (ngModelChange)="isValidSudoku(i,row1,'One')" maxlength="1"></td>
+      <td *ngFor="let row1 of rowOne let i=index;"><input type="text" [class.invalid]="i==selectedIdx && selectedRow == 'One' && !!checker" class="input-size" [(ngModel)]="row1.value" (click)="isValidSudoku(i,row1.value,'One')" (ngModelChange)="isValidSudoku(i,row1,'One')" maxlength="1" [readOnly]="row1.readonly"></td>
       <!--<td><input type="text" class="input-size"></td>-->
       <!--<td><input type="text"  class="input-size"></td>-->
       <!--<td><input type="text"  class="input-size"></td>-->
@@ -120,6 +120,11 @@
   </table>
 </div>
 </ion-content>
+<ion-footer>
+  <ion-navbar color="primary">
+    <ion-title><span class="justify-content-center" style="display:flex;justify-content:center;">{{playerName}}</span></ion-title>
+  </ion-navbar>
+</ion-footer>
   <!--<table>-->
   <!--<div class="row">-->
     <!--<div><button type="button"   class="input-size btn-shape" (click)="keyBoardEvent('1')">1</button></div>-->

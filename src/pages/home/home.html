@@ -1,30 +1,20 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Devdactic Signature
+    SUDOKU
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <div class="title">Please draw your Signature</div>
-  <ion-row [ngClass]="{'drawing-active': isDrawing}">
-    <ion-col></ion-col>
-    <ion-col>
-      <signature-pad [options]="signatuioniorePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-    </ion-col>
-    <ion-col></ion-col>
-
-  </ion-row>
-  <button ion-button full color="danger" (click)="clearPad()">Clear</button>
-  <button ion-button full color="secondary" (click)="savePad()">Save</button>
-
-  <ion-row>
-    <ion-col></ion-col>
-    <ion-col width-80>
-      <img [src]="signature"/>
-    </ion-col>
-    <ion-col></ion-col>
-  </ion-row>
-
+  <ion-card>
+    <!--<img src="assets/icon/background.jpg"/>-->
+    <ion-icon name="person" class="home-card"></ion-icon>
+   <ion-row class="home-card">
+       <input style="padding: 5px;text-align: center;" ion-input round type="text" placeholder="Your Name" [(ngModel)]="player">
+   </ion-row>
+    <ion-row  class="home-card">
+        <button ion-button round (click)="StartGame()">Start Game</button>
+    </ion-row>
+  </ion-card>
 </ion-content>

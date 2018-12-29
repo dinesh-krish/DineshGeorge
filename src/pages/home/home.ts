@@ -3,53 +3,34 @@ import { NavController } from 'ionic-angular';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
+import {SudokuPage} from "../sudoku/sudoku";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-    signature = '';
-    isDrawing = false;
+    player;
 
-    @ViewChild(SignaturePad) signaturePad: SignaturePad;
-    private signaturePadOptions: Object = {
-        'minWidth': 2,
-        'canvasWidth': 400,
-        'canvasHeight': 200,
-        'backgroundColor': '#f6fbff',
-        'penColor': '#666a73'
-    };
+  constructor(public navCtrl: NavController, public storage: Storage, public toastCtrl: ToastController) {}
 
-    constructor(public navController: NavController, public storage: Storage, public toastCtrl: ToastController) {}
 
-    ionViewDidEnter() {
-        this.signaturePad.clear()
-        this.storage.get('savedSignature').then((data) => {
-            this.signature = data;
-        });
+  StartGame(){
+    if(!this.player){
+      this.snackBar('Enter Your Name First');
+      return
     }
 
-    drawComplete() {
-        this.isDrawing = false;
-    }
+    this.navCtrl.push(SudokuPage,{playerName:this.player});
+  }
 
-    drawStart() {
-        this.isDrawing = true;
-    }
+  snackBar(msg){
+   let msgBar = this.toastCtrl.create({
+      message:msg,
+      duration:2000,
 
-    savePad() {
-        this.signature = this.signaturePad.toDataURL();
-        this.storage.set('savedSignature', this.signature);
-        this.signaturePad.clear();
-        let toast = this.toastCtrl.create({
-            message: 'New Signature saved.',
-            duration: 3000
-        });
-        toast.present();
-    }
+    });
+    msgBar.present();
+  }
 
-    clearPad() {
-        this.signaturePad.clear();
-    }
 }

@@ -4,26 +4,31 @@ ptable {
 td {
   height:30px;
   width:30px;
-  border:1px solid;
+  //border:1px solid;
   text-align:center;
 
   background-color:blue;
 }
 td:first-child {
   border-left:solid;
+  border-color: darkblue!important;
 }
 td:nth-child(3n) {
   border-right:solid ;
+  border-color: darkblue !important;
 }
 tr:first-child {
   border-top:solid;
+  border-color: darkblue !important;
 }
 tr:nth-child(3n) td {
   border-bottom:solid ;
+  border-color: darkblue !important;
 }
 .input-size{
   height:30px;
   width:30px;
+  text-align:center;
 }
 .validCell{
   border-color: green;
@@ -33,7 +38,7 @@ tr:nth-child(3n) td {
 }
 .btn-shape{
   margin: 3px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .board-centre{
   justify-content: center;

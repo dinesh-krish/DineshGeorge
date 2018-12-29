@@ -9,7 +9,7 @@ import {SudokuPage} from "../pages/sudoku/sudoku";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = SudokuPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

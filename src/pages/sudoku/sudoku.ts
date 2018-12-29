@@ -36,6 +36,8 @@ export class SudokuPage {
     thirdMatrix = [this.rowSeven,this.rowEight,this.rowNine];
     checker=false;
     selectedRow;
+    playerName;
+
     // rowTwo = [0,5,0,4,3,0,1,0,0];
     // rowThree = [1,2,4,0,0,9,0,0,0];
 
@@ -50,8 +52,8 @@ export class SudokuPage {
     isValid: false;
     newValue:any;
     selectedIdx;
-    constructor() {
-
+    constructor(public nav:NavParams) {
+    this.playerName = this.nav.get('playerName');
     }
     isValidSudoku(index,num,from){
         console.log(index,from);
@@ -164,12 +166,13 @@ export class SudokuPage {
     checkedByRow(num,index,checkArray){
         let arr = checkArray.slice().sort();
         var results = [];
-        if(num.value == '' || num == '') {
+        if(num.value == '' || num == '' || num==null || num.value==null) {
             this.checker=false;
             return;
         }
-        for (let i = 0; i < arr.length - 1; i++) {
+        for (let i = 0; i < arr.length; i++) {
             if(i == index) i++;
+            if(i==9) return;
             if (arr[i].value == arr[index].value) {
                 this.checker=true;
                 results.push(arr[i]);
@@ -182,13 +185,14 @@ export class SudokuPage {
         return 0;
     }
 
-    checkedByCol(idx,num,fromrow){
-        if(num.value == '' || num == '') {
+    checkedByCol(idx,num,fromrw){
+        if(num.value == '' || num == ''|| num==null || num.value==null) {
             this.checker=false;
             return;
         }
     for(let col = 0;col< this.boardForCol.length;col++){
-        if(col == fromrow) col++;
+        if(col == fromrw) col++;
+        if(col==9) return;
         let column = this.boardForCol[col];
         column = this.boardForCol[col];
         if(column[idx].value == num.value){
@@ -214,7 +218,7 @@ export class SudokuPage {
         // console.log("checking index" + idx);
         // console.log("checking row" + fromRow);
         if(idx < 3){
-            if(num.value == '' || num == '') {
+            if(num.value == '' || num == ''|| num==null || num.value==null) {
                 this.checker=false;
                 return;
             }
@@ -233,7 +237,7 @@ export class SudokuPage {
             }
         }
         else if(idx > 2 && idx < 6){
-            if(num.value == '' || num == '') {
+            if(num.value == '' || num == ''|| num==null || num.value==null) {
                 this.checker=false;
                 return;
             }
@@ -252,7 +256,7 @@ export class SudokuPage {
             }
         }
         else{
-            if(num.value == '' || num == '') {
+            if(num.value == '' || num == ''|| num==null || num.value==null) {
                 this.checker=false;
                 return;
             }
@@ -295,125 +299,125 @@ export enum arrayFrom{
 export interface PeriodicElement {
     key: number;
     value: string;
-    // weight: number;
+     readonly? : boolean;
     // symbol: string;
 }
 
 const row1: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: ''},
-    {key: 3, value: '7'},
+    {key: 1, value: '',readonly :false},
+    {key: 2, value: '',readonly :false},
+    {key: 3, value: '7',readonly :true},
 
-    {key: 4, value: ''},
-    {key: 5, value: ''},
-    {key: 6, value: '6'},
+    {key: 4, value: '',readonly :false},
+    {key: 5, value: '',readonly :false},
+    {key: 6, value: '6',readonly :true},
 
-    {key: 7, value: ''},
-    {key: 8, value: ''},
-    {key: 9, value: '9'},
+    {key: 7, value: '',readonly :false},
+    {key: 8, value: '',readonly :false},
+    {key: 9, value: '9',readonly :true},
 ];
 const row2: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: '1'},
-    {key: 3, value: ''},
+    {key: 1, value: '',readonly:false},
+    {key: 2, value: '1',readonly:true},
+    {key: 3, value: '',readonly:false},
 
-    {key: 4, value: '5'},
-    {key: 5, value: '2'},
-    {key: 6, value: ''},
+    {key: 4, value: '5',readonly:true},
+    {key: 5, value: '2',readonly:true},
+    {key: 6, value: '',readonly:false},
 
-    {key: 7, value: '7'},
-    {key: 8, value: ''},
-    {key: 9, value: ''},
+    {key: 7, value: '7',readonly:false},
+    {key: 8, value: '',readonly:false},
+    {key: 9, value: '',readonly:false},
 ];
 const row3: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: '3'},
-    {key: 3, value: '9'},
+    {key: 1, value: '',readonly:false},
+    {key: 2, value: '3',readonly:true},
+    {key: 3, value: '9',readonly:true},
 
-    {key: 4, value: '8'},
-    {key: 5, value: ''},
-    {key: 6, value: ''},
+    {key: 4, value: '8',readonly:true},
+    {key: 5, value: '',readonly:false},
+    {key: 6, value: '',readonly:false},
 
-    {key: 7, value: ''},
-    {key: 8, value: ''},
-    {key: 9, value: '4'},
+    {key: 7, value: '',readonly:false},
+    {key: 8, value: '',readonly:false},
+    {key: 9, value: '4',readonly:true},
 ];
 const row4: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: '2'},
-    {key: 3, value: ''},
+    {key: 1, value: '',readonly:false},
+    {key: 2, value: '2',readonly:true},
+    {key: 3, value: '',readonly:false},
 
-    {key: 4, value: ''},
-    {key: 5, value: '5'},
-    {key: 6, value: ''},
+    {key: 4, value: '',readonly:false},
+    {key: 5, value: '5',readonly:true},
+    {key: 6, value: '',readonly:false},
 
-    {key: 7, value: ''},
-    {key: 8, value: '9'},
-    {key: 9, value: ''},
+    {key: 7, value: '',readonly:false},
+    {key: 8, value: '9',readonly:true},
+    {key: 9, value: '',readonly:false},
 ];
 const row5: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: ''},
-    {key: 3, value: ''},
+    {key: 1, value: '',readonly:false},
+    {key: 2, value: '',readonly:false},
+    {key: 3, value: '',readonly:false},
 
-    {key: 4, value: '2'},
-    {key: 5, value: '9'},
-    {key: 6, value: '4'},
+    {key: 4, value: '2',readonly:true},
+    {key: 5, value: '9',readonly:true},
+    {key: 6, value: '4',readonly:true},
 
-    {key: 7, value: ''},
-    {key: 8, value: ''},
-    {key: 9, value: ''},
+    {key: 7, value: '',readonly:false},
+    {key: 8, value: '',readonly:false},
+    {key: 9, value: '',readonly:false},
 ];
 const row6: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: '4'},
-    {key: 3, value: ''},
+    {key: 1, value: '',readonly:false},
+    {key: 2, value: '4',readonly:true},
+    {key: 3, value: '',readonly:false},
 
-    {key: 4, value: ''},
-    {key: 5, value: '7'},
-    {key: 6, value: ''},
+    {key: 4, value: '',readonly:false},
+    {key: 5, value: '7',readonly:true},
+    {key: 6, value: '',readonly:false},
 
-    {key: 7, value: ''},
-    {key: 8, value: '5'},
-    {key: 9, value: ''},
+    {key: 7, value: '',readonly:false},
+    {key: 8, value: '5',readonly:true},
+    {key: 9, value: '',readonly:false},
 ];
 const row7: PeriodicElement[] = [
-    {key: 1, value: '8'},
-    {key: 2, value: ''},
-    {key: 3, value: ''},
+    {key: 1, value: '8',readonly:true},
+    {key: 2, value: '',readonly:false},
+    {key: 3, value: '',readonly:false},
 
-    {key: 4, value: ''},
-    {key: 5, value: ''},
-    {key: 6, value: '1'},
+    {key: 4, value: '',readonly:false},
+    {key: 5, value: '',readonly:false},
+    {key: 6, value: '1',readonly:true},
 
-    {key: 7, value: '3'},
-    {key: 8, value: '4'},
-    {key: 9, value: ''},
+    {key: 7, value: '3',readonly:true},
+    {key: 8, value: '4',readonly:true},
+    {key: 9, value: '',readonly:false},
 ];
 const row8: PeriodicElement[] = [
-    {key: 1, value: ''},
-    {key: 2, value: ''},
-    {key: 3, value: '6'},
+    {key: 1, value: '',readonly:false},
+    {key: 2, value: '',readonly:false},
+    {key: 3, value: '6',readonly:true},
 
-    {key: 4, value: ''},
-    {key: 5, value: '3'},
-    {key: 6, value: '5'},
+    {key: 4, value: '',readonly:false},
+    {key: 5, value: '3',readonly:true},
+    {key: 6, value: '5',readonly:true},
 
-    {key: 7, value: ''},
-    {key: 8, value: '8'},
-    {key: 9, value: ''},
+    {key: 7, value: '',readonly:false},
+    {key: 8, value: '8',readonly:true},
+    {key: 9, value: '',readonly:false},
 ];
 const row9: PeriodicElement[] = [
-    {key: 1, value: '4'},
-    {key: 2, value: ''},
-    {key: 3, value: ''},
+    {key: 1, value: '4',readonly:true},
+    {key: 2, value: '',readonly:false},
+    {key: 3, value: '',readonly:false},
 
-    {key: 4, value: '7'},
-    {key: 5, value: ''},
-    {key: 6, value: ''},
+    {key: 4, value: '7',readonly:true},
+    {key: 5, value: '',readonly:false},
+    {key: 6, value: '',readonly:false},
 
-    {key: 7, value: '9'},
-    {key: 8, value: ''},
-    {key: 9, value: ''},
+    {key: 7, value: '9',readonly:true},
+    {key: 8, value: '',readonly:false},
+    {key: 9, value: '',readonly:false},
 ];
 
